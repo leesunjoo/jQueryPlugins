@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>jQuery 플러그인 - tab.ver0.0.01</title>
+	<link rel="stylesheet"  href="./css/common.css">
+
+	<style>
+		.content{width:800px; margin:50px auto;}
+		.tab-menu > li{float: left; background: #d9e0e2; margin-right: 1px}
+		.tab-menu > li >a {display:block;padding:10px 20px;  color: #4d677d}
+		.tab-menu > li:hover >a, .tab-menu > li>a.active {background: #4d677d;color: #fff}
+		.tab-content {border: 1px solid #eee; padding:10px; margin-top: 20px; display: none}
+		.tab-content.active {display: block}
+		.row {margin-bottom: 20px}
+	</style> 
+</head> 
+<body>
+	<div class="content">
+		<!-- tab menu 1 -->
+		<div id="tab-menu1" class="row">
+			<ul class="tab-menu clearfix">
+				<li><a href="#tab1" class="active">menu1</a></li>
+				<li><a href="#tab2">menu2</a></li>
+				<li><a href="#tab3">menu3</a></li>
+				<li><a href="#tab4">menu4</a></li>
+			</ul>
+			<div class="tab-container">
+				<div class="tab-content active" id="tab1">
+					<h3>menu1-content</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum aut dignissimos modi, ipsum deserunt, ex assumenda. Natus possimus architecto maiores!lor
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit.lo
+					</p>
+				</div>
+				<div class="tab-content" id="tab2">
+					<h3>menu2-content</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis at repellat voluptate sapiente, ipsa, perspiciatis itaque officiis tempora impedit nisi ex, est numquam! Opt et necessitatibus nihil illo.
+					</p>
+				</div>
+				<div class="tab-content" id="tab3">
+					<h3>menu3-content</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis norcitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						cillum dolore eu fugiat nulla pariatur. Excepteur sinaborum.
+					</p>
+					
+				</div>
+				<div class="tab-content" id="tab4">
+					<h3>menu4-content</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud citation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat.
+					</p>
+				</div>
+			</div>
+		</div>
+		<!-- #tab menu2 -->
+
+		<!-- tab menu 1 -->
+		<div id="tab-menu2">
+			<ul class="tab-menu clearfix">
+				<li><a href="#tab2-1" class="active">menu1</a></li>
+				<li><a href="#tab2-2">menu2</a></li>
+				<li><a href="#tab2-3">menu3</a></li>
+				<li><a href="#tab2-4">menu4</a></li>
+			</ul>
+			<div class="tab-container">
+				<div class="tab-content active" id="tab2-1">
+					<h3>menu2-1-content</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisi\
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					</p>
+				</div>
+				<div class="tab-content" id="tab2-2">
+					<h3>menu2-2-content</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat.
+					</p>
+				</div>
+				<div class="tab-content" id="tab2-3">
+					<h3>menu2-3-content</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					</p>
+					
+				</div>
+				<div class="tab-content" id="tab2-4">
+					<h3>menu2-4-content</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat.
+					</p>
+				</div>
+			</div>
+		</div>
+		<!-- #tab menu2 -->
+
+
+	</div>
+
+	
+	<script src="./js/libs/jquery.min.js"></script>
+	<script src="./js/plugins/jquery.simpleTabs.js"></script>
+
+	<script>
+	$(document).ready(function () {
+		$('#tab-menu1 .tab-menu, #tab-menu2 .tab-menu').simpleTabs({
+			'tab_menu': 'li>a', // 클릭 탭 메뉴
+			'tab_menu_className': 'active', // 탭메뉴 활성 클래스 명
+			'tab_contents': '.tab-content' // 탭 컨텐츠
+		});
+	});
+		
+	</script>
+	
+</body>
+</html>
