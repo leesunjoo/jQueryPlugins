@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>jQuery 플러그인 - Accordian &amp; Toggle Contents</title>
+	<link rel="stylesheet"  href="./css/common.css">
+	<style>
+		html {font-size: 14px}
+		.content{width:960px; margin:50px auto;}
+		.title {background:  url(./images/fancy-title-pattern.png) 50% 50% repeat-x; font-size: 1.5rem; margin-bottom: 1rem}
+		.title span {display: inline-block; background: #fff; padding-right: 10px;}
+		.acc-conatainer1 {float: left; width:40%; margin-right: 5%}
+		.acc-conatainer2 {width:90%;}
+		.acc-control {position: relative; cursor: pointer;}
+		.acc-control, .contents-view {box-sizing: border-box; border: 1px solid #ececec; background: #fdfdfd; padding: 15px; border-top: none;}
+		#acc1 .acc-data:first-child > .acc-control {border-top: 1px solid #ececec;}	
+		#acc2 .acc-data:first-child > .acc-control {border-top: 1px solid #ececec;}	
+		#acc3 .acc-data:first-child > .acc-control {border-top: 1px solid #ececec;}	
+		.acc-control:after {position: absolute; top:15px; right: 10px; width:24px; height: 15px; content: ''; background:  url(./images/down.png) 0 0 no-repeat;}	
+		.open .acc-control:after {background-image: url(./images/up.png);}
+
+
+	</style> 
+</head> 
+<body>
+	<!-- 타입1 -->
+	<div class="content clearfix">
+		<h2 class="title"><span>Multilple Toggle Open at a time</span></h2>
+		<div id="acc1" class="acc-conatainer1">
+			<div class="acc-data">
+				<h3 class="acc-control">Amazing sliders</h3>
+				<div class="acc-content">
+					<div class="contents-view">
+						Fugiat dapibus, tellus ac cursus commodo, mauris sit condim eser ntumsi nibh, uum a justo vitaes amet risus amets un. Posi sectetut amet fermntum orem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia nons.
+					</div>
+				</div>
+			</div>
+
+			<div class="acc-data">
+				<h3 class="acc-control">Unlimited colors</h3>
+				<div class="acc-content">
+					<div class="contents-view">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam eum quam temporibus, tempore, incidunt voluptatum at doloremque expedita. Officiis aliquam, sit deserunt impedit iusto modi sunt temporibus nostrum! Ratione hic ducimus animi soluta reprehenderit, iusto, temporibus dolorum, culpa commodi consequuntur maxime neque dicta nihil libero sint enim voluptate aliquid repudiandae!
+					</div>
+				</div>
+			</div>
+
+			<div class="acc-data">
+				<h3 class="acc-control">Tons of shortcodes</h3>
+				<div class="acc-content">
+					<div class="contents-view">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam eum quam temporibus, tempore, incidunt voluptatum at doloremque expedita. Officiis aliquam, sit deserunt impedit iusto modi sunt temporibus nostrum! Ratione hic ducimus animi soluta reprehenderit, iusto, temporibus dolorum, culpa commodi consequuntur maxime neque dicta nihil libero sint enim voluptate aliquid repudiandae!
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="acc2" class="acc-conatainer1">
+			<!-- <div class="acc-data">
+				<h3 class="acc-control">Amazing sliders</h3>
+				<div class="acc-content">
+					<div class="contents-view">
+						Fugiat dapibus, tellus ac cursus commodo, mauris sit condim eser ntumsi nibh, uum a justo vitaes amet risus amets un. Posi sectetut amet fermntum orem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia nons.
+					</div>
+				</div>
+			</div> -->
+ 			<!-- 첫번째 메뉴 활성을 위해 요소검사 된 코드를 직접 넣어줌-->
+ 			<div class="acc-data open" data-accordion="">
+				<h3 class="acc-control" data-control="">Amazing sliders</h3>
+				<div class="acc-content" data-content="" style="max-height: 121px; overflow: hidden; -webkit-transition: max-height 300ms ease; transition: max-height 300ms ease;">
+					<div class="contents-view">
+						Fugiat dapibus, tellus ac cursus commodo, mauris sit condim eser ntumsi nibh, uum a justo vitaes amet risus amets un. Posi sectetut amet fermntum orem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia nons.
+					</div>
+				</div>
+			</div>
+
+
+			<div class="acc-data">
+				<h3 class="acc-control">Unlimited colors</h3>
+				<div class="acc-content">
+					<div class="contents-view">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam eum quam temporibus, tempore, incidunt voluptatum at doloremque expedita. Officiis aliquam, sit deserunt impedit iusto modi sunt temporibus nostrum! Ratione hic ducimus animi soluta reprehenderit, iusto, temporibus dolorum, culpa commodi consequuntur maxime neque dicta nihil libero sint enim voluptate aliquid repudiandae!
+					</div>
+				</div>
+			</div>
+
+			<div class="acc-data">
+				<h3 class="acc-control">Tons of shortcodes</h3>
+				<div class="acc-content">
+					<div class="contents-view">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam eum quam temporibus, tempore, incidunt voluptatum at doloremque expedita. Officiis aliquam, sit deserunt impedit iusto modi sunt temporibus nostrum! Ratione hic ducimus animi soluta reprehenderit, iusto, temporibus dolorum, culpa commodi consequuntur maxime neque dicta nihil libero sint enim voluptate aliquid repudiandae!
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 타입2 -->
+	<div class="content clearfix">
+		<h2 class="title"><span>SingleToggle Open at a time</span></h2>
+		<div id="acc3" class="acc-conatainer2">
+			<div class="acc-data">
+				<h3 class="acc-control">Amazing sliders</h3>
+				<div class="acc-content">
+					<div class="contents-view">
+						Fugiat dapibus, tellus ac cursus commodo, mauris sit condim eser ntumsi nibh, uum a justo vitaes amet risus amets un. Posi sectetut amet fermntum orem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia nons.
+					</div>
+				</div>
+			</div>
+
+			<div class="acc-data">
+				<h3 class="acc-control">Unlimited colors</h3>
+				<div class="acc-content">
+					<div class="contents-view">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam eum quam temporibus, tempore, incidunt voluptatum at doloremque expedita. Officiis aliquam, sit deserunt impedit iusto modi sunt temporibus nostrum! Ratione hic ducimus animi soluta reprehenderit, iusto, temporibus dolorum, culpa commodi consequuntur maxime neque dicta nihil libero sint enim voluptate aliquid repudiandae!
+					</div>
+				</div>
+			</div>
+
+			<div class="acc-data">
+				<h3 class="acc-control">Tons of shortcodes</h3>
+				<div class="acc-content">
+					<div class="contents-view">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam eum quam temporibus, tempore, incidunt voluptatum at doloremque expedita. Officiis aliquam, sit deserunt impedit iusto modi sunt temporibus nostrum! Ratione hic ducimus animi soluta reprehenderit, iusto, temporibus dolorum, culpa commodi consequuntur maxime neque dicta nihil libero sint enim voluptate aliquid repudiandae!
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="./js/libs/jquery.min.js"></script>
+	<script src="./js/plugins/jquery.accordion.js"></script>
+
+	<script>
+	$(document).ready(function () {
+		$('#acc1 .acc-data').accordion({
+		        transitionSpeed: 300, // 트랜지션 속도 디폴트 300
+		        transitionEasing: 'ease', // 트랜지션 효과 디폴트 ease
+		        controlElement: '.acc-control', // 아코디언 클릭 요소
+		        contentElement: '.acc-content', // 클릭시 해당 컨텐츠를 감싸는 블럭
+		        groupElement: '#acc1', // 아코디언 컨텐이너
+		        singleOpen: false // 싱글 오픈 디폴트 single
+		    });
+		$('#acc2 .acc-data').accordion({
+		        transitionSpeed: 300, // 트랜지션 속도 디폴트 300
+		        transitionEasing: 'ease', // 트랜지션 효과 디폴트 ease
+		        controlElement: '.acc-control', // 아코디언 클릭 요소
+		        contentElement: '.acc-content', // 클릭시 해당 컨텐츠를 감싸는 블럭
+		        groupElement: '#acc2', // 아코디언 컨텐이너
+		        singleOpen: false // 싱글 오픈 디폴트 single
+		    });
+		$('#acc3 .acc-data').accordion({
+		        transitionSpeed: 300, // 트랜지션 속도 디폴트 300
+		        transitionEasing: 'ease', // 트랜지션 효과 디폴트 ease
+		        controlElement: '.acc-control', // 아코디언 클릭 요소
+		        contentElement: '.acc-content', // 클릭시 해당 컨텐츠를 감싸는 블럭
+		        groupElement: '#acc3', // 아코디언 컨텐이너
+		        singleOpen: true // 싱글 오픈 디폴트 single
+		    });
+
+	});
+		
+	</script>
+	
+</body>
+</html>
